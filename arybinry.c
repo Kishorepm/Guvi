@@ -24,16 +24,17 @@ printf("The numbers arranged in descending with number of 1 of its binary\n");
 for (i = 0; i < n; ++i)
 {
 printf("%d", number[i]);
-int orig = number[i];
-int count = 0;
-while(number[i]>0)
+
+printf(" %d\n",countSetBits(number[i]));
+}
+}
+int countSetBits(int u)
 {
-number[i] =number[i] >> 1 << 1;
-if(orig-number[i]==1)
-count++;
-number[i] = a >> 1;
-a = number[i];
-}
-printf("\t%d\n",count);
-}
+    unsigned int count = 0;
+    while (u)
+    {
+      u &= (u-1) ;
+      count++;
+    }
+    return count;
 }
